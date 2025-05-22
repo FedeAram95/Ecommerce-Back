@@ -354,13 +354,13 @@ public class OperacionServiceImpl implements OperacionService {
         return operacion;
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<Operacion> findAll() {
         return this.operacionRepository.findAll();
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public Operacion findById(Long id) {
         return this.operacionRepository.findById(id)

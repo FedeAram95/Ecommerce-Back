@@ -24,7 +24,7 @@ public class VentaServiceImpl implements VentaService {
 
     private final OperacionRepository operacionRepository;
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<VentaPayload> listarVentas() {
         return this.operacionRepository.findAllByOrderByFechaOperacionDesc()
@@ -33,7 +33,7 @@ public class VentaServiceImpl implements VentaService {
                 .collect(Collectors.toList());
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<VentaPayload> ventasFecha(Date fechaDesde, Date fechaHasta) {
         List<VentaPayload> operaciones = this.operacionRepository.findAll()
@@ -51,7 +51,7 @@ public class VentaServiceImpl implements VentaService {
         return ventasFecha;
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<VentaPayload> ventasEstado(String estado) {
         List<VentaPayload> ventas = this.operacionRepository.findAll()
@@ -69,7 +69,7 @@ public class VentaServiceImpl implements VentaService {
         return ventasEstado;
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<VentaPayload> ventasFechaYEstado(String estado, Date fechaDesde, Date fechaHasta) {
         List<VentaPayload> ventasFecha = this.operacionRepository.findAllByFechaOperacionBetween(fechaDesde, fechaHasta)
@@ -88,14 +88,14 @@ public class VentaServiceImpl implements VentaService {
         return ventasTotales;
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public VentaPayload obtenerVenta(Long nroOperacion) {
         return this.mapToVenta(this.operacionRepository.findById(nroOperacion)
                 .orElseThrow(() -> new OperacionException("No existe la operación con id: " + nroOperacion)));
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public Imagen obtenerComprobantePagoVenta(Long nroOperacion) {
         Operacion operacion = this.operacionRepository.findById(nroOperacion)

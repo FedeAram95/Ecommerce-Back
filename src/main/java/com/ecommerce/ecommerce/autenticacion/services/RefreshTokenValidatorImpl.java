@@ -28,7 +28,7 @@ public class RefreshTokenValidatorImpl implements RefreshTokenValidator {
         this.refreshTokenRepository = refreshTokenRepository;
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<RefreshToken> findAllExpired() {
         return this.refreshTokenRepository.findAllByExpirationLessThan(new Date());

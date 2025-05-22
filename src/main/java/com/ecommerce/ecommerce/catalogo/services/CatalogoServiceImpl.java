@@ -28,7 +28,7 @@ public class CatalogoServiceImpl implements CatalogoService {
     private final MarcaRepository marcaRepository;
     private final BuscadorProductosService buscadorProductosService;
 
-    @Transactional(readOnly = true)
+
     @Override
     public Map<String, Object> buscarProductos(String termino) {
         Map<String, Object> resultadoBusqueda = new HashMap<>();
@@ -45,39 +45,39 @@ public class CatalogoServiceImpl implements CatalogoService {
         return resultadoBusqueda;
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<Marca> listarMarcas() {
         return this.marcaRepository.findAll();
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<Producto> obtenerProductosDestacados() {
         return this.productoRepository
                 .findAllByDestacadoIsTrueAndActivoIsTrue();
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public Producto obtenerProducto(Long id) {
         return this.productoRepository.findById(id)
                 .orElseThrow(() -> new ProductoException("No existe el producto con id: " + id));
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<Producto> productosPrecioMenorMayor() {
         return this.productoRepository.findAllByOrderByPrecioAsc();
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<Producto> productosPrecioMayorMenor() {
         return this.productoRepository.findAllByOrderByPrecioDesc();
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<Producto> productosPorSubcategoria(Long subcategoriaId) {
         Subcategoria subcategoria = this.subcategoriaRepository.findById(subcategoriaId)
@@ -86,7 +86,7 @@ public class CatalogoServiceImpl implements CatalogoService {
         return this.productoRepository.findAllBySubcategoriaAndActivoIsTrue(subcategoria);
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<Producto> productosPorMarca(Long marcaId) {
         Marca marca = this.marcaRepository.findById(marcaId)

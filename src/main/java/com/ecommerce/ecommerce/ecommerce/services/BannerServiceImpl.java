@@ -125,13 +125,13 @@ public class BannerServiceImpl implements BannerService {
         this.delete(banner);
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<Banner> findAll() {
         return this.bannerRepository.findAll();
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public Banner findById(Long aLong) {
         return this.bannerRepository.findById(aLong)

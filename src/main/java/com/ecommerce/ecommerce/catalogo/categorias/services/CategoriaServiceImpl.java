@@ -47,20 +47,20 @@ public class CategoriaServiceImpl implements CategoriaService {
     }
 
     @Override
-    @Transactional(readOnly = true)
+
     public List<Categoria> obtenerCategorias() {
         return this.categoriaRepository.findAllByOrderByNombreAsc();
     }
 
     @Override
-    @Transactional(readOnly = true)
+
     public Categoria obtenerCategoria(Long id) {
         return this.categoriaRepository.findById(id)
                 .orElseThrow(() -> new CategoriaException("Categoría no existente con id: " + id));
     }
 
     @Override
-    @Transactional(readOnly = true)
+
     public List<Subcategoria> obtenerSubcategorias(Long categoriaId) {
         Categoria categoria = this.categoriaRepository.findById(categoriaId)
                 .orElseThrow(() -> new CategoriaException("Categoria no existente con id: " + categoriaId));
@@ -70,7 +70,7 @@ public class CategoriaServiceImpl implements CategoriaService {
     }
 
     @Override
-    @Transactional(readOnly = true)
+
     public Subcategoria obtenerSubcategoriaDeCategoria(Long categoriaId, Long subcategoriaId) {
         Categoria categoria = this.obtenerCategoria(categoriaId);
         Subcategoria subcategoria = null;
@@ -103,7 +103,7 @@ public class CategoriaServiceImpl implements CategoriaService {
         return fotoCategoria;
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public byte[] obtenerFotoCategoria(Long categoriaId) {
         Categoria categoria = this.obtenerCategoria(categoriaId);
@@ -115,7 +115,7 @@ public class CategoriaServiceImpl implements CategoriaService {
         return this.imageService.descargarImagen(fotoCategoria);
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public String obtenerPathFotoCategoria(Long categoriaId) {
         Categoria categoria = this.obtenerCategoria(categoriaId);
@@ -136,7 +136,7 @@ public class CategoriaServiceImpl implements CategoriaService {
         this.imageService.eliminarImagen(fotoCategoria);
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public Categoria obtenerCategoriaPorSubcategoria(Subcategoria subcategoria) {
         return this.categoriaRepository.findBySubcategoriasContaining(subcategoria)

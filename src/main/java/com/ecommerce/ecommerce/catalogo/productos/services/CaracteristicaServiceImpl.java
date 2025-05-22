@@ -37,7 +37,7 @@ public class CaracteristicaServiceImpl implements CaracteristicaService {
         return null;
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public Caracteristica findById(Long aLong) {
         return this.caracteristicaRepository.findById(aLong)

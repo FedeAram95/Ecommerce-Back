@@ -69,7 +69,7 @@ public class OperacionCompletadorImpl implements OperacionCompletador {
      * ENTREGADO.
      * @return List con operaciones entregadas.
      */
-    @Transactional(readOnly = true)
+
     public List<Operacion> findAllEntregado() {
         return this.operacionRepository.findAllByEstado(EstadoOperacion.ENTREGADO);
     }

@@ -45,7 +45,7 @@ public class AdministradorUsuariosServiceImpl implements AdministradorUsuariosSe
         return this.rolRepository.findAll();
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<UsuarioDTO> listarUsuarios() {
         return this.usuarioRepository.findAllByOrderByFechaCreacionDesc()
@@ -54,7 +54,7 @@ public class AdministradorUsuariosServiceImpl implements AdministradorUsuariosSe
                 .collect(Collectors.toList());
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<UsuarioDTO> obtenerAdministradores() {
         Rol admin = this.rolRepository.findByNombre("ROLE_ADMIN").orElse(null);
@@ -64,7 +64,7 @@ public class AdministradorUsuariosServiceImpl implements AdministradorUsuariosSe
                 .collect(Collectors.toList());
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public UsuarioDTO getUsuario(String usuarioEmail) {
         Usuario usuario = this.usuarioRepository.findByEmail(usuarioEmail)

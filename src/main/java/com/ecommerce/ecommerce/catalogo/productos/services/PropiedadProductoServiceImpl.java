@@ -38,13 +38,13 @@ public class PropiedadProductoServiceImpl implements PropiedadProductoService {
                 .valores(valores).build());
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<PropiedadProducto> obtenerPropiedadesProducto() {
         return this.findAll();
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public PropiedadProducto obtenerPropiedadProducto(Long propiedadId) {
         return this.findById(propiedadId);
@@ -88,7 +88,7 @@ public class PropiedadProductoServiceImpl implements PropiedadProductoService {
         return this.save(propiedad);
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<ValorPropiedadProducto> obtenerValoresDePropiedad(Long propiedadId) {
         PropiedadProducto propiedad = this.obtenerPropiedadProducto(propiedadId);
@@ -134,13 +134,13 @@ public class PropiedadProductoServiceImpl implements PropiedadProductoService {
                 .concat(String.valueOf(valorId)).concat("' para la propiedad: '".concat(propiedad.getNombre())));
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<PropiedadProducto> findAll() {
         return this.propiedadProductoRepository.findAll();
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public PropiedadProducto findById(Long aLong) {
         return this.propiedadProductoRepository.findById(aLong)

@@ -68,7 +68,7 @@ public class ComprobantePagoServiceImpl implements ComprobantePagoService {
         return this.mapToCompra(this.operacionRepository.save(compra));
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public Imagen obtenerImagenComprobantePago(Long nroOperacion) {
         Cliente clienteActual = this.getClientePerfil();

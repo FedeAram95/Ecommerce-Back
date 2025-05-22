@@ -34,7 +34,7 @@ public class SubcategoriaServiceImpl implements SubcategoriaService {
         return this.subcategoriaRepository.save(nuevaSubcategoria);
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<Subcategoria> obtenerSubcategorias() {
         return this.subcategoriaRepository.findAll();
@@ -46,7 +46,7 @@ public class SubcategoriaServiceImpl implements SubcategoriaService {
                 .orElseThrow(() -> new ProductoException("No existe subcategoria con id: " + subcategoriaId));
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public PropiedadProducto obtenerPropiedad(Long subcategoriaId, Long propiedadId) {
         Subcategoria subcategoria = this.obtenerSubcategoria(subcategoriaId);
@@ -69,7 +69,7 @@ public class SubcategoriaServiceImpl implements SubcategoriaService {
         return propiedadProducto;
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<PropiedadProducto> obtenerPropiedadesSubcategoria(Long subcategoriaId) {
         Subcategoria subcategoria = this.obtenerSubcategoria(subcategoriaId);
@@ -91,7 +91,7 @@ public class SubcategoriaServiceImpl implements SubcategoriaService {
         return fotoSubcategoria;
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public byte[] obtenerFotoSubcategoria(Long subcategoriaId) {
         Subcategoria subcategoria = this.obtenerSubcategoria(subcategoriaId);
@@ -103,7 +103,7 @@ public class SubcategoriaServiceImpl implements SubcategoriaService {
         return this.imageService.descargarImagen(fotoSubcategoria);
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public String obtenerPathFotoSubcategoria(Long subcategoriaId) {
         Subcategoria subcategoria = this.obtenerSubcategoria(subcategoriaId);

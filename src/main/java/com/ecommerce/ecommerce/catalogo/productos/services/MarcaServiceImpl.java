@@ -55,13 +55,13 @@ public class MarcaServiceImpl implements MarcaService {
         this.deleteById(marcaId);
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<Marca> findAll() {
         return this.marcaRepository.findAll();
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public Marca findById(Long aLong) {
         return this.marcaRepository.findById(aLong)

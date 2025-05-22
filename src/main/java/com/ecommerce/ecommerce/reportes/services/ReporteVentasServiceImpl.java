@@ -54,7 +54,7 @@ public class ReporteVentasServiceImpl implements ReporteVentasService {
         return ventas;
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public Map<String, Object> generarReporteVentasSku(Long skuId) {
         Map<String, Object> reportData = new HashMap<>();
@@ -82,7 +82,7 @@ public class ReporteVentasServiceImpl implements ReporteVentasService {
         return reportData;
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public Map<String, Object> generarReporteVentasSku(Long skuId, Date fechaDesde, Date fechaHasta) {
         Map<String, Object> reportData = new HashMap<>();
@@ -118,7 +118,7 @@ public class ReporteVentasServiceImpl implements ReporteVentasService {
         return reportData;
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public Map<String, Object> generarReporteVentasItemsTotales(Date fechaDesde, Date fechaHasta) {
         Map<String, Object> reportData = new HashMap<>();

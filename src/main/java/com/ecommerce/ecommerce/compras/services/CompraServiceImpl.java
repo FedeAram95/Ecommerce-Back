@@ -26,7 +26,7 @@ public class CompraServiceImpl implements CompraService {
     private final PerfilService perfilService;
     private final EncontradorCompraCliente encontradorCompraCliente;
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<CompraPayload> historialCompras() {
         Cliente cliente = this.getClienteDelPerfilActual();
@@ -39,7 +39,7 @@ public class CompraServiceImpl implements CompraService {
                 .collect(Collectors.toList());
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<CompraPayload> comprasEstado(String estado) {
         List<CompraPayload> comprasCliente = this.historialCompras();
@@ -54,7 +54,7 @@ public class CompraServiceImpl implements CompraService {
         return comprasEstado;
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<CompraPayload> comprasYear(Integer year) {
         Cliente cliente = this.getClienteDelPerfilActual();
@@ -71,7 +71,7 @@ public class CompraServiceImpl implements CompraService {
                 .collect(Collectors.toList());
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<CompraPayload> comprasMonth(Integer month) {
         Cliente cliente = this.getClienteDelPerfilActual();
@@ -83,7 +83,7 @@ public class CompraServiceImpl implements CompraService {
                 .collect(Collectors.toList());
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public CompraPayload verCompra(Long nroOperacion) {
         Cliente cliente = this.getClienteDelPerfilActual();

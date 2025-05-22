@@ -24,7 +24,7 @@ public class BuscadorProductosServiceImpl implements BuscadorProductosService {
     private final MarcaRepository marcaRepository;
     private final SubcategoriaRepository subcategoriaRepository;
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<Producto> buscarProductos(String termino) {
         List<Producto> productosTotal = new ArrayList<>();
@@ -42,7 +42,7 @@ public class BuscadorProductosServiceImpl implements BuscadorProductosService {
         return this.eliminarDuplicados(productosTotal);
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<Marca> marcasDeProductosEncontrados(String termino) {
         List<Producto> productos = this.buscarProductos(termino);
@@ -55,7 +55,7 @@ public class BuscadorProductosServiceImpl implements BuscadorProductosService {
         return this.eliminarDuplicados(marcasDeProductos);
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<Subcategoria> subcategoriasDeProductosEncontrados(String termino) {
         List<Producto> productos = this.buscarProductos(termino);
@@ -68,7 +68,7 @@ public class BuscadorProductosServiceImpl implements BuscadorProductosService {
         return this.eliminarDuplicados(subcategoriasDeProductos);
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<PropiedadProducto> propiedadesDeProductosEncontrados(String termino) {
         List<Producto> productos = this.buscarProductos(termino);

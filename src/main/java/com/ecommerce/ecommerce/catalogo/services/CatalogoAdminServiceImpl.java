@@ -65,7 +65,7 @@ public class CatalogoAdminServiceImpl implements CatalogoAdminService {
         return fotoProducto;
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public byte[] obtenerFotoPpalProducto(Long productoId) {
         Producto producto = this.productoService.obtenerProducto(productoId);
@@ -76,7 +76,7 @@ public class CatalogoAdminServiceImpl implements CatalogoAdminService {
         return this.imageService.descargarImagen(fotoProducto);
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public String obtenerPathFotoPpalProducto(Long productoId) {
         Producto producto = this.productoService.obtenerProducto(productoId);
@@ -116,14 +116,14 @@ public class CatalogoAdminServiceImpl implements CatalogoAdminService {
         return imgSecundaria;
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<Imagen> obtenerFotosSecundariasProducto(Long productoId) {
         Producto producto = this.productoService.obtenerProducto(productoId);
         return producto.getImagenes();
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public Imagen obtenerFotoSecundariaProducto(Long productoId, Long imagenId) {
         Producto producto = this.productoService.obtenerProducto(productoId);
@@ -160,7 +160,7 @@ public class CatalogoAdminServiceImpl implements CatalogoAdminService {
         return this.subirFotoSecundariaProducto(producto.getId(), foto);
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public String obtenerPathImagenSecundaria(Long productoId, Long imagenId) {
         Producto producto = this.productoService.obtenerProducto(productoId);
@@ -174,7 +174,7 @@ public class CatalogoAdminServiceImpl implements CatalogoAdminService {
         return imgSecundaria.getPath();
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public byte[] descargarImagenSecundariaProducto(Long productoId, Long imagenId) {
         Producto producto = this.productoService.obtenerProducto(productoId);
@@ -245,7 +245,7 @@ public class CatalogoAdminServiceImpl implements CatalogoAdminService {
         return fotoSku;
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public byte[] obtenerFotoSku(Long skuId) {
         Sku sku = this.skuService.obtenerSku(skuId);
@@ -257,7 +257,7 @@ public class CatalogoAdminServiceImpl implements CatalogoAdminService {
         return this.imageService.descargarImagen(fotoSku);
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public String obtenerPathFotoSku(Long skuId) {
         Sku sku = this.skuService.obtenerSku(skuId);
@@ -402,19 +402,19 @@ public class CatalogoAdminServiceImpl implements CatalogoAdminService {
         this.subcategoriaRepository.save(subcategoria);
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<PropiedadProducto> obtenerPropiedadesProducto() {
         return this.propiedadProductoService.obtenerPropiedadesProducto();
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public PropiedadProducto obtenerPropiedadProducto(Long propiedadId) {
         return this.propiedadProductoService.obtenerPropiedadProducto(propiedadId);
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<ValorPropiedadProducto> obtenerValoresDePropiedad(Long propiedadId) {
         return this.propiedadProductoService.obtenerValoresDePropiedad(propiedadId);

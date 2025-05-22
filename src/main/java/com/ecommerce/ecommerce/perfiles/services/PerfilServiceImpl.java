@@ -130,7 +130,7 @@ public class PerfilServiceImpl implements PerfilService {
         return this.clienteService.actualizarDireccion(clienteActual, direccion);
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public Carrito obtenerCarrito() {
         if (this.obtenerPerfil().getCarrito() == null) {
@@ -186,7 +186,7 @@ public class PerfilServiceImpl implements PerfilService {
         this.carritoRepository.save(carrito);
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public Favorito obtenerFavoritos() {
         Perfil perfil = this.obtenerPerfil();
@@ -216,7 +216,7 @@ public class PerfilServiceImpl implements PerfilService {
         return !(authentication instanceof AnonymousAuthenticationToken) && authentication.isAuthenticated();
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<Perfil> findAll() {
         System.out.println("No corresponde...");
@@ -245,7 +245,7 @@ public class PerfilServiceImpl implements PerfilService {
         System.out.println("No corresponde...");
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public Perfil obtenerPerfilConUsuario(Usuario usuario) {
         return this.perfilRepository.findByUsuario(usuario)

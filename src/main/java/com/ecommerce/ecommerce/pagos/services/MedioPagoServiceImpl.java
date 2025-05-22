@@ -17,13 +17,13 @@ public class MedioPagoServiceImpl implements MedioPagoService {
 
     private final MedioPagoRepository medioPagoRepository;
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<MedioPago> findAll() {
         return this.medioPagoRepository.findAll();
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public MedioPago findById(Long aLong) {
         return this.medioPagoRepository.findById(aLong)

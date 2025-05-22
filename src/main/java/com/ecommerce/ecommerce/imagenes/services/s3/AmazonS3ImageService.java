@@ -72,7 +72,7 @@ public class AmazonS3ImageService implements ImageService {
         return content;
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public Imagen findByPath(String imagePath) {
         return this.imagenRepository.findByPath(imagePath)

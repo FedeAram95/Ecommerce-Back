@@ -16,7 +16,7 @@ public class EncontradorCompraClienteImpl implements EncontradorCompraCliente {
 
     private final OperacionRepository operacionRepository;
 
-    @Transactional(readOnly = true)
+
     @Override
     public Operacion encontrarCompraCliente(Long nroOperacion, Cliente cliente) throws OperacionException {
         return this.operacionRepository.findByNroOperacionAndCliente(nroOperacion, cliente)

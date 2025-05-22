@@ -23,27 +23,27 @@ public class JpaPais implements PaisDSGateway {
         this.paisRepository = paisRepository;
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<Pais> findAll() {
         return this.paisRepository.findAllByOrderByNombreAsc();
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public Pais findById(Long paisId) {
         return this.paisRepository.findById(paisId)
                 .orElseThrow(() -> new LocalizationException("País no encontrado con id: " + paisId));
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public Pais findByNombre(String pais) {
         return this.paisRepository.findByNombre(pais)
                 .orElseThrow(() -> new LocalizationException("País no encontrado con nombre: " + pais));
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public Pais findByCodigo(String code) {
         return this.paisRepository.findByIso2(code)

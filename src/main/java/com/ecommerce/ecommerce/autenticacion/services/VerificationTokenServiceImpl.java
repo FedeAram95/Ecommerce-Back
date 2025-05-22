@@ -35,7 +35,7 @@ public class VerificationTokenServiceImpl implements VerificationTokenService {
         return token;
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public VerificationToken getVerificationToken(String token) {
         return this.verificationTokenRepository.findByToken(token)

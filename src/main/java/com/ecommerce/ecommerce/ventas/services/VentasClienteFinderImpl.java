@@ -22,7 +22,7 @@ public class VentasClienteFinderImpl implements VentasClienteFinder {
     private final ClienteRepository clienteRepository;
     private final OperacionRepository operacionRepository;
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<VentaPayload> ventasCliente(Long clienteId) {
         Cliente cliente = this.clienteRepository.findById(clienteId)

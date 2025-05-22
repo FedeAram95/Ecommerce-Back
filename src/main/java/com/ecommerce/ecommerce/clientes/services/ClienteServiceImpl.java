@@ -58,13 +58,13 @@ public class ClienteServiceImpl implements ClienteService {
         return this.save(cliente);
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<Cliente> findAll() {
         return this.clienteRepository.findAll();
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public Cliente findById(Long aLong) {
         return this.clienteRepository.findById(aLong)

@@ -181,13 +181,13 @@ public class PromocionServiceImpl implements PromocionService {
         return productosPromocionados;
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public Promocion obtenerPromocionProducto(Long productoId) {
         return this.productoService.obtenerProducto(productoId).getPromocion();
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public Promocion obtenerPromocionSku(Long skuId) {
         return this.skuService.obtenerSku(skuId).getPromocion();

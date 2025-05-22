@@ -44,7 +44,7 @@ public class RefreshTokenServiceImpl implements RefreshTokenService {
         this.refreshTokenRepository.save(tokenActual);
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public void validarRefreshToken(String token) {
         this.refreshTokenRepository.findByToken(token)

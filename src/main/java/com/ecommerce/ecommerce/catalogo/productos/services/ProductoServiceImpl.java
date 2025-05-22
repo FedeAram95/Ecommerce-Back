@@ -85,27 +85,27 @@ public class ProductoServiceImpl implements ProductoService {
     }
 
     @Override
-    @Transactional(readOnly = true)
+
     public List<Producto> obtenerProductos() {
         return this.productoRepository.findAllByOrderByNombreAsc();
     }
 
     @Override
-    @Transactional(readOnly = true)
+
     public List<Producto> obtenerProductosMarca(Long marcaId) {
         Marca marca = this.marcaService.obtenerMarca(marcaId);
         return this.productoRepository.findAllByMarca(marca);
     }
 
     @Override
-    @Transactional(readOnly = true)
+
     public List<Producto> obtenerProductosSubcategoria(Long subcategoriaId) {
         Subcategoria subcategoria = this.subcategoriaService.obtenerSubcategoria(subcategoriaId);
         return this.productoRepository.findAllBySubcategoria(subcategoria);
     }
 
     @Override
-    @Transactional(readOnly = true)
+
     public Producto obtenerProducto(Long id) {
         return this.findById(id);
     }
@@ -196,13 +196,13 @@ public class ProductoServiceImpl implements ProductoService {
         this.save(productoActual);
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<UnidadMedida> obtenerUnidadesMedida() {
         return this.unidadMedidaRepository.findAll();
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<PropiedadProducto> obtenerPropiedadesDeProducto(Long productoId) {
         Producto producto = this.obtenerProducto(productoId);
@@ -210,7 +210,7 @@ public class ProductoServiceImpl implements ProductoService {
         return producto.getPropiedades();
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<Sku> obtenerSkusProducto(Long productoId) {
         Producto producto = this.obtenerProducto(productoId);
@@ -218,7 +218,7 @@ public class ProductoServiceImpl implements ProductoService {
         return producto.getSkus();
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public Sku obtenerSkuProducto(Long productoId, Long skuId) {
         Producto producto = this.obtenerProducto(productoId);
@@ -245,25 +245,25 @@ public class ProductoServiceImpl implements ProductoService {
         return sku;
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public Sku obtenerSkuDefectoProducto(Long productoId) {
         return this.obtenerProducto(productoId).getDefaultSku();
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<Producto> productosEnSubcategoria(Subcategoria subcategoria) {
         return this.productoRepository.findAllBySubcategoria(subcategoria);
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<Producto> findAll() {
         return this.productoRepository.findAll();
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public Producto findById(Long aLong) {
         return this.productoRepository.findById(aLong)

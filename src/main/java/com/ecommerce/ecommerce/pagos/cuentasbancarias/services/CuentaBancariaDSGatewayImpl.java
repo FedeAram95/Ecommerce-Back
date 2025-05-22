@@ -31,27 +31,27 @@ public class CuentaBancariaDSGatewayImpl implements CuentaBancariaDSGateway {
         return this.cuentaBancariaRepository.save(cuentaBancaria);
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public CuentaBancaria findById(Long cuentaId) throws CuentaBancariaException {
         return this.cuentaBancariaRepository.findById(cuentaId)
                 .orElseThrow(() -> new CuentaBancariaException("No existe la cuenta bancaria con id: " + cuentaId));
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public CuentaBancaria findByPrincipal() throws CuentaBancariaException {
         return this.cuentaBancariaRepository.findFirstByPrincipal(true)
                 .orElseThrow(() -> new CuentaBancariaException("No existe una cuenta bancaria principal"));
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public boolean existsByPais(Pais pais) {
         return this.cuentaBancariaRepository.existsByPais(pais);
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public CuentaBancaria findByPais(Long paisId) throws CuentaBancariaException {
         // excp handling y obtencion de pais deberia ser impl por paisDsGateway, cuando
@@ -63,13 +63,13 @@ public class CuentaBancariaDSGatewayImpl implements CuentaBancariaDSGateway {
                         pais.getNombre()));
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public Pais findPaisById(Long paisId) {
         return this.paisDSGateway.findById(paisId);
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<CuentaBancaria> findAll() {
         return this.cuentaBancariaRepository.findAll();
@@ -82,7 +82,7 @@ public class CuentaBancariaDSGatewayImpl implements CuentaBancariaDSGateway {
         this.cuentaBancariaRepository.delete(cuentaAEliminar);
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public Optional<CuentaBancaria> findFirst() {
         return this.cuentaBancariaRepository.findFirstByPrincipal(false);

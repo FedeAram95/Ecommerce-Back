@@ -114,7 +114,7 @@ public class SkuServiceImpl implements SkuService {
         return map;
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public Sku obtenerSku(Long skuId) {
         return this.findById(skuId);
@@ -192,13 +192,13 @@ public class SkuServiceImpl implements SkuService {
                 .orElseThrow(() -> new ProductoException("No existe el valor de propiedad"));
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<Sku> findAll() {
         return this.skuRepository.findAll();
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public Sku findById(Long aLong) {
         return this.skuRepository.findById(aLong)
